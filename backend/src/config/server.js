@@ -1,18 +1,18 @@
-const port = 3005;
-const bodyParser = require('body-parser');
-const express = require('express');
+const port = 3003
+
+const bodyParser = require('body-parser')
+const express = require('express')
+const server = express()
 const allowCors = require('./cors')
-const queryParser = require('express-query-int') //Converte uma string na url em int.
+const queryParser = require('express-query-int')
 
-const server = express();
-
-server.use(bodyParser.urlencoded({extended: true}));
-server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true }))
+server.use(bodyParser.json())
 server.use(allowCors)
-server.use(queryParser)
+server.use(queryParser())
 
-server.listen(port, function (){
-    console.log(`Backend on port: ${port}, is running.`)
+server.listen(port, function() {
+    console.log(`BACKEND is running on port ${port}.`)
 })
 
 module.exports = server
